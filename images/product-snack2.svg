@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#FFF9C4"/>
+  <rect x="75" y="75" width="150" height="150" rx="20" ry="20" fill="#FFF176"/>
+  <text x="150" y="160" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#F57F17">버터링</text>
+  <path d="M100,100 Q150,50 200,100" stroke="#F57F17" stroke-width="5" fill="none"/>
+</svg>

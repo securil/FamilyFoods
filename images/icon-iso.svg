@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="50" fill="#f8f8f8" stroke="#FF5E00" stroke-width="3"/>
+  <text x="60" y="65" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#FF5E00">품질</text>
+  <text x="60" y="85" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#FF5E00">관리</text>
+</svg>
