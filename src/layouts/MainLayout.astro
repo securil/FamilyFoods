@@ -1,0 +1,97 @@
+---
+import { createI18nHelpers } from '../i18n/i18n-utils.js';
+import LanguageSelector from '../components/LanguageSelector.astro';
+import { prependBase } from '../utils/path-utils.js';
+
+// 현재 페이지 경로에서 다국어 도우미 함수 가져오기
+const { currentLocale, t, getLanguageLinks } = createI18nHelpers(Astro.url?.pathname || '/');
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+// 다국어 지원 타이틀 및 설명 기본값
+const { 
+  title = t('layout.title') || '훼미리식품 - 가족의 행복을 위한 식품',
+  description = t('layout.description') || '훼미리는 가족입니다. 사랑과 신뢰가 있는 기업'
+} = Astro.props;
+
+// 전역 스타일 가져오기
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={prependBase('/favicon.svg')} />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <a href={prependBase('/')} class="logo">FAMILY</a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href={prependBase('/company')}>{t('nav.company')}</a></li>
+            <li><a href={prependBase('/products')}>{t('nav.products')}</a></li>
+            <li><a href={prependBase('/customer')}>{t('nav.customer')}</a></li>
+            <li><a href={prependBase('/brands')}>{t('nav.brands')}</a></li>
+          </ul>
+        </nav>
+        <LanguageSelector currentLocale={currentLocale} languageLinks={getLanguageLinks()} />
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-info">
+            <div class="footer-logo">FAMILY</div>
+            <p>{t('footer.companyInfo.address')}</p>
+            <p>{t('footer.companyInfo.tel')}</p>
+            <p>{t('footer.companyInfo.email')}</p>
+          </div>
+          <div class="footer-links">
+            <h3>{t('footer.network.title')}</h3>
+            <ul>
+              <li><a href={prependBase('/')}>{t('footer.network.links.family')}</a></li>
+              <li><a href={prependBase('/company')}>{t('footer.network.links.philosophy')}</a></li>
+              <li><a href={prependBase('/products')}>{t('footer.network.links.promo')}</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>{t('footer.support.title')}</h3>
+            <ul>
+              <li><a href={prependBase('/customer/faq')}>{t('footer.support.links.faq')}</a></li>
+              <li><a href={prependBase('/customer/contact')}>{t('footer.support.links.contact')}</a></li>
+              <li><a href={prependBase('/careers')}>{t('footer.support.links.careers')}</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>{t('footer.policy.title')}</h3>
+            <ul>
+              <li><a href={prependBase('/privacy')}>{t('footer.policy.links.privacy')}</a></li>
+              <li><a href={prependBase('/terms')}>{t('footer.policy.links.terms')}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>{t('footer.copyright')}</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

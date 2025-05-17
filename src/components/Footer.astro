@@ -1,0 +1,76 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white pt-12 pb-6">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Family Network</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-family-orange transition-colors">본사</a></li>
+          <li><a href="#" class="hover:text-family-orange transition-colors">전주공장</a></li>
+          <li><a href="#" class="hover:text-family-orange transition-colors">부산공장</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">기업이념</h3>
+        <p class="text-gray-400">
+          훼미리식품은 '가족'이라는 이름으로 사랑과 신뢰를 바탕으로 한 기업입니다.
+        </p>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">홍보영상</h3>
+        <a href="#" class="hover:text-family-orange transition-colors">회사 소개 영상 보기</a>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-4">고객센터</h3>
+        <p>이메일: webmaster@familyfoods.co.kr</p>
+        <p>전화: 02-703-2650</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" aria-label="Facebook" class="text-white hover:text-family-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12.5 17H10.5V12H8.5V10H10.5V8.5C10.5 7.12 11.62 6 13 6H15V8H14C13.45 8 13 8.45 13 9V10H15V12H13V17Z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="text-white hover:text-family-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 15C10.343 15 9 13.657 9 12C9 10.343 10.343 9 12 9C13.657 9 15 10.343 15 12C15 13.657 13.657 15 12 15ZM16.5 7.5C16.5 8.328 15.828 9 15 9C14.172 9 13.5 8.328 13.5 7.5C13.5 6.672 14.172 6 15 6C15.828 6 16.5 6.672 16.5 7.5Z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-white hover:text-family-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM16 13.5L10 16.5V9.5L16 12.5V13.5Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 pt-6 mt-6">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+        <div class="mb-4 md:mb-0">
+          <p>본사: 서울시 용산구 이태원로 27길 14 (☎: 02-703-2650)</p>
+          <p>전주공장: 전북 전주시 덕진구 팔복동 4가 249-3 (☎: 063-212-1707)</p>
+          <p>부산공장: 부산광역시 사하구 신평동 447-1 (☎: 051-207-0800)</p>
+        </div>
+        <div class="flex space-x-4">
+          <img src="/images/fssc22000.png" alt="FSSC22000 인증" class="h-10" />
+          <img src="/images/haccp.png" alt="HACCP 인증" class="h-10" />
+        </div>
+      </div>
+      
+      <div class="text-center text-gray-500 text-sm mt-6">
+        <p>Copyright © {currentYear} 훼미리식품(주). All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="hover:text-family-orange transition-colors">개인정보처리방침</a>
+          <a href="#" class="hover:text-family-orange transition-colors">이용약관</a>
+          <a href="#" class="hover:text-family-orange transition-colors">사이트맵</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

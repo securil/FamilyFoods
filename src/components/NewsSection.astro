@@ -1,0 +1,63 @@
+---
+// 임시 뉴스 데이터
+const news = [
+  {
+    id: 1,
+    title: "훼미리식품(주) 본사, 공장 관련 공지사항",
+    excerpt: "훼미리식품(주)의 본사 및 공장 운영에 관한 중요 안내사항입니다.",
+    date: "2025-05-01",
+    image: "/images/news-1.jpg"
+  },
+  {
+    id: 2,
+    title: "훼미리식품(주)의 제품정보 안내",
+    excerpt: "신제품 출시 및 기존 제품 정보 업데이트에 관한 안내입니다.",
+    date: "2025-04-15",
+    image: "/images/news-2.jpg"
+  },
+  {
+    id: 3,
+    title: "2025 식품 박람회 참가 안내",
+    excerpt: "훼미리식품(주)은 오는 6월 서울 코엑스에서 열리는 2025 식품산업 박람회에 참가합니다.",
+    date: "2025-04-03",
+    image: "/images/news-3.jpg"
+  }
+];
+---
+
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold">
+        <span class="text-family-orange">News</span> & Notice
+      </h2>
+      <a href="/news" class="text-family-orange hover:underline font-medium">
+        더 보기 →
+      </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {news.map((item, index) => (
+        <a 
+          href={`/news/${item.id}`} 
+          data-aos="fade-up" 
+          data-aos-delay={index * 100}
+          class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+        >
+          <div class="h-48 overflow-hidden">
+            <img 
+              src={item.image || `/images/news-placeholder.jpg`}
+              alt={item.title} 
+              class="w-full h-full object-cover transition-transform hover:scale-105"
+            />
+          </div>
+          <div class="p-4">
+            <p class="text-gray-500 text-sm mb-2">{item.date}</p>
+            <h3 class="text-lg font-bold mb-2 line-clamp-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm line-clamp-3">{item.excerpt}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

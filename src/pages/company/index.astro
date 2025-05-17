@@ -1,0 +1,198 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout
+  title="회사소개 - 훼미리식품"
+  description="훼미리식품의 연혁과 비전, 미션을 소개합니다."
+  pageTitle="회사소개"
+  breadcrumbs={[
+    { label: '회사소개', href: '/company' }
+  ]}
+>
+  <div class="container">
+    <section class="section">
+      <div class="section-title">
+        <h2>훼미리식품(주)</h2>
+      </div>
+      
+      <div class="company-intro">
+        <p>
+          훼미리식품은 1990년 설립 이래 30년 이상의 역사를 자랑하는 식품 제조 기업입니다.
+          '가족의 행복을 위한 식품'이라는 가치 아래, 안전하고 맛있는 과자와 빙과류를 생산하고 있습니다.
+        </p>
+        <p>
+          고객의 건강과 행복을 최우선으로 생각하며, 최고 품질의 원료만을 사용하여 제품을 만들어 나가고 있습니다.
+          훼미리의 이름에 걸맞게 온 가족이 함께 즐길 수 있는 제품을 개발하는 데 주력하고 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>기업 비전</h2>
+      </div>
+      
+      <div class="vision-content">
+        <div class="vision-card">
+          <h3>미션</h3>
+          <p>가족의 행복한 순간을 함께하는 식품 기업</p>
+        </div>
+        <div class="vision-card">
+          <h3>비전</h3>
+          <p>글로벌 식품 시장을 선도하는 혁신 기업</p>
+        </div>
+        <div class="vision-card">
+          <h3>핵심가치</h3>
+          <p>신뢰, 안전, 혁신, 가족</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <div class="section-title">
+        <h2>연혁</h2>
+      </div>
+      
+      <div class="history-timeline">
+        <div class="timeline-item">
+          <div class="year">2025</div>
+          <div class="content">
+            <h3>글로벌 비즈니스 확대</h3>
+            <p>동남아 시장 진출 및 중국 현지 법인 설립</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2020</div>
+          <div class="content">
+            <h3>신제품 라인업 출시</h3>
+            <p>친환경 포장재 도입 및 건강 지향적 제품 라인 강화</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2010</div>
+          <div class="content">
+            <h3>제2공장 설립</h3>
+            <p>첨단 생산시설 구축 및 R&D 센터 확장</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2000</div>
+          <div class="content">
+            <h3>품질인증 획득</h3>
+            <p>HACCP 및 ISO 인증 획득</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">1990</div>
+          <div class="content">
+            <h3>회사 설립</h3>
+            <p>훼미리식품(주) 설립 및 첫 제품 출시</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</SubpageLayout>
+
+<style>
+  .company-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  .company-intro p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .vision-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .vision-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s;
+  }
+  
+  .vision-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .vision-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .history-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+  }
+  
+  .timeline-item {
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+  
+  .timeline-item .year {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-item h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .vision-content {
+      flex-direction: column;
+    }
+    
+    .history-timeline {
+      padding-left: 1.5rem;
+    }
+    
+    .timeline-item::before {
+      left: -2rem;
+    }
+  }
+</style>

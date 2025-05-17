@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#FFEBEE"/>
+  <circle cx="150" cy="150" r="100" fill="#FFCDD2"/>
+  <text x="150" y="160" font-family="Arial" font-size="22" font-weight="bold" text-anchor="middle" fill="#C2185B">레드볼빗</text>
+</svg>

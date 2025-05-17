@@ -1,0 +1,15 @@
+---
+import { supportedLanguages } from '../i18n/index.js';
+
+// 각 지원 언어에 대한 리디렉션 경로 생성
+export function getStaticPaths() {
+  return supportedLanguages.map(lang => ({
+    params: { lang }
+  }));
+}
+
+// 메인 컴포넌트는 서버 측에서 리디렉션만 처리
+const { lang } = Astro.params;
+---
+
+<meta http-equiv="refresh" content={`0;url=/${lang}/`} />

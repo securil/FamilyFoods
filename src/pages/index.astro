@@ -1,11 +1,758 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { createI18nHelpers } from '../i18n/i18n-utils.js';
+import { prependBase } from '../utils/path-utils.js';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// 다국어 도우미 함수 가져오기
+const { t } = createI18nHelpers(Astro.url?.pathname || '/');
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout>
+  <!-- 메인 비주얼 섹션 (동영상 배경) -->
+  <section class="main-visual">
+    <div class="video-background">
+      <video id="video-bg-1" class="video-bg active" autoplay muted>
+        <source src={prependBase('/images/movie/Happy_Family_1.mp4')} type="video/mp4">
+      </video>
+      <video id="video-bg-2" class="video-bg" muted>
+        <source src={prependBase('/images/movie/Happy_Family_2.mp4')} type="video/mp4">
+      </video>
+      <video id="video-bg-3" class="video-bg" muted>
+        <source src={prependBase('/images/movie/Happy_Family_3.mp4')} type="video/mp4">
+      </video>
+      <video id="video-bg-4" class="video-bg" muted>
+        <source src={prependBase('/images/movie/cookie1.mp4')} type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="main-visual-content">
+        <!-- 슬로건 1 - 가족들과의 피크닉 -->
+        <div class="slogan-content active" id="slogan-1">
+          <h1>{t('slogan.slogan1.title')}</h1>
+          <p>{t('slogan.slogan1.subtitle')}</p>
+          <a href={prependBase('/products')} class="btn btn-primary">{t('slogan.viewProducts')}</a>
+        </div>
+        
+        <!-- 슬로건 2 - 누워서 쉬는 모습 -->
+        <div class="slogan-content" id="slogan-2">
+          <h1>{t('slogan.slogan2.title')}</h1>
+          <p>{t('slogan.slogan2.subtitle')}</p>
+          <a href={prependBase('/products')} class="btn btn-primary">{t('slogan.viewProducts')}</a>
+        </div>
+        
+        <!-- 슬로건 3 - 친구들과 담소 -->
+        <div class="slogan-content" id="slogan-3">
+          <h1>{t('slogan.slogan3.title')}</h1>
+          <p>{t('slogan.slogan3.subtitle')}</p>
+          <a href={prependBase('/products')} class="btn btn-primary">{t('slogan.viewProducts')}</a>
+        </div>
+        
+        <!-- 슬로건 4 - 쿠키 모습 -->
+        <div class="slogan-content" id="slogan-4">
+          <h1>{t('slogan.slogan4.title')}</h1>
+          <p>{t('slogan.slogan4.subtitle')}</p>
+          <a href={prependBase('/products')} class="btn btn-primary">{t('slogan.viewProducts')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 품질 인증 섹션 -->
+  <section class="section quality-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>{t('quality.title')}</h2>
+      </div>
+
+      <div class="quality-cards">
+        <div class="quality-card" style=`background-image: url(${prependBase('/images/factory/factory1.jpg')})`>
+          <div class="quality-card-overlay"></div>
+          <div class="quality-card-content">
+            <div class="icon-wrapper">
+              <img src={prependBase('/images/icon-haccp.svg')} alt="HACCP 인증">
+            </div>
+            <h3>{t('quality.haccp.title')}</h3>
+            <p>{t('quality.haccp.subtitle')}</p>
+            <p class="quality-description">{t('quality.haccp.description')}</p>
+          </div>
+        </div>
+        
+        <div class="quality-card" style=`background-image: url(${prependBase('/images/factory/factory2.jpg')})`>
+          <div class="quality-card-overlay"></div>
+          <div class="quality-card-content">
+            <div class="icon-wrapper">
+              <img src={prependBase('/images/icon-fssc.svg')} alt="FSSC22000 인증">
+            </div>
+            <h3>{t('quality.fssc.title')}</h3>
+            <p>{t('quality.fssc.subtitle')}</p>
+            <p class="quality-description">{t('quality.fssc.description')}</p>
+          </div>
+        </div>
+        
+        <div class="quality-card" style=`background-image: url(${prependBase('/images/factory/factory3.jpg')})`>
+          <div class="quality-card-overlay"></div>
+          <div class="quality-card-content">
+            <div class="icon-wrapper">
+              <img src={prependBase('/images/icon-iso.svg')} alt="품질 관리">
+            </div>
+            <h3>{t('quality.quality.title')}</h3>
+            <p>{t('quality.quality.subtitle')}</p>
+            <p class="quality-description">{t('quality.quality.description')}</p>
+          </div>
+        </div>
+        
+        <div class="quality-card" style=`background-image: url(${prependBase('/images/factory/factory4.jpg')})`>
+          <div class="quality-card-overlay"></div>
+          <div class="quality-card-content">
+            <div class="icon-wrapper">
+              <img src={prependBase('/images/icon-ingredients.svg')} alt="원료 관리">
+            </div>
+            <h3>{t('quality.ingredients.title')}</h3>
+            <p>{t('quality.ingredients.subtitle')}</p>
+            <p class="quality-description">{t('quality.ingredients.description')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기업이념 섹션 -->
+  <section class="section philosophy-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>{t('philosophy.title')}</h2>
+      </div>
+      
+      <div class="philosophy-content">
+        <div class="philosophy-intro">
+          <p>{t('philosophy.intro')}</p>
+        </div>
+        
+        <div class="philosophy-cards">
+          <div class="philosophy-card">
+            <h3>{t('philosophy.card1.title')}</h3>
+            <p>{t('philosophy.card1.description')}</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <h3>{t('philosophy.card2.title')}</h3>
+            <p>{t('philosophy.card2.description')}</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <h3>{t('philosophy.card3.title')}</h3>
+            <p>{t('philosophy.card3.description')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제품 하이라이트 섹션 -->
+  <section class="section products-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>{t('products.title')}</h2>
+      </div>
+
+      <div class="category-tabs">
+        <button class="tab-btn active">{t('products.tabs.best')}</button>
+        <button class="tab-btn">{t('products.tabs.new')}</button>
+        <button class="tab-btn">{t('products.tabs.snacks')}</button>
+        <button class="tab-btn">{t('products.tabs.iceCreams')}</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-badge">{t('products.badges.best')}</div>
+          <img src={prependBase('/images/product/Thin-in-Thin.jpg')} alt="팅인팅 과자">
+          <h3>팅인팅</h3>
+          <p>바삭하고 달콤한 쿠키</p>
+          <a href={prependBase('/products/detail')} class="product-link">{t('products.productDetails')}</a>
+        </div>
+        <div class="product-card">
+          <div class="product-badge new">{t('products.badges.new')}</div>
+          <img src={prependBase('/images/product/deepchoco.jpg')} alt="딥초코 과자">
+          <h3>버터링</h3>
+          <p>풍부한 버터 맛 과자</p>
+          <a href={prependBase('/products/detail')} class="product-link">{t('products.productDetails')}</a>
+        </div>
+        <div class="product-card">
+          <img src={prependBase('/images/product/수박통통.png')} alt="수박통통 빙과">
+          <h3>수박통통</h3>
+          <p>실제 수박맛 그대로 담은 빙과</p>
+          <a href={prependBase('/products/detail')} class="product-link">{t('products.productDetails')}</a>
+        </div>
+        <div class="product-card">
+          <img src={prependBase('/images/product/7f1642bb13ea98f29a4709da6d17902f.jpg')} alt="레드볼빗 빙과">
+          <h3>레드볼빗</h3>
+          <p>상큼한 레드베리 빙과</p>
+          <a href={prependBase('/products/detail')} class="product-link">{t('products.productDetails')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 뉴스 및 공지사항 -->
+  <section class="section news-section bg-gray">
+    <div class="container">
+      <div class="section-title">
+        <h2>{t('news.title')}</h2>
+      </div>
+
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-date">2025. 05. 15</div>
+          <h3>훼미리식품, 신제품 '버터링' 출시 안내</h3>
+          <p>더욱 고소해진 버터 맛으로 돌아온 훼미리식품의 신제품 '버터링'이 출시되었습니다.</p>
+          <a href={prependBase('/news/detail')} class="news-link">{t('news.more')}</a>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2025. 05. 10</div>
+          <h3>여름 맞이 빙과류 신제품 라인업 안내</h3>
+          <p>다가오는 여름을 위한 훼미리식품의 빙과류 신제품 라인업을 소개합니다.</p>
+          <a href={prependBase('/news/detail')} class="news-link">{t('news.more')}</a>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2025. 05. 01</div>
+          <h3>어린이날 특별 이벤트 안내</h3>
+          <p>5월 5일 어린이날을 맞아 훼미리식품에서 특별 이벤트를 진행합니다.</p>
+          <a href={prependBase('/news/detail')} class="news-link">{t('news.more')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 채용 정보 섹션 -->
+  <section class="section career-section">
+    <div class="container">
+      <div class="career-content">
+        <div class="career-text">
+          <h2>{t('career.title')}</h2>
+          <p>{t('career.description1')}</p>
+          <p>{t('career.description2')}</p>
+          <a href={prependBase('/careers')} class="btn btn-primary">{t('career.viewMore')}</a>
+        </div>
+        <div class="career-image">
+          <img src={prependBase('/images/career-image.svg')} alt={t('career.title')}>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* 비디오 배경 스타일 */
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+    background-color: black; /* 비디오 로딩 전 배경색 */
+  }
+
+  .video-bg.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+    z-index: 3;
+  }
+
+  /* 슬로건 콘텐츠 스타일 */
+  .slogan-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .slogan-content.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* 각 슬로건별 개별 스타일링 */
+  #slogan-1 h1 {
+    color: #FFD54F; /* 밝은 노란색 - 가족과 함께하는 따뜻함 */
+  }
+  
+  #slogan-2 h1 {
+    color: #A5D6A7; /* 연한 녹색 - 휴식과 평화 */
+  }
+  
+  #slogan-3 h1 {
+    color: #90CAF9; /* 연한 파란색 - 대화와 소통 */
+  }
+  
+  #slogan-4 h1 {
+    color: #FFAB91; /* 연한 주황색 - 쿠키의 따뜻함 */
+  }
+  
+  .main-visual {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 0;
+    z-index: 1;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 비율 (9/16 = 0.5625 = 56.25%) */
+    overflow: hidden;
+  }
+
+  .main-visual-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    z-index: 10; /* 비디오 및 오버레이보다 위에 표시 */
+  }
+  
+  /* 품질 섹션 스타일 */
+  .quality-section {
+    background-color: #f8f8f8;
+  }
+
+  .quality-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .quality-card {
+    position: relative;
+    min-height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .quality-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .quality-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+    z-index: 1;
+  }
+
+  .quality-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .icon-wrapper img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quality-card h3 {
+    margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .quality-card p {
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+  }
+
+  .quality-description {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* 철학 섹션 스타일 */
+  .philosophy-section {
+    background-color: var(--background-color);
+  }
+  
+  .philosophy-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .philosophy-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .philosophy-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .philosophy-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .philosophy-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+
+  /* 제품 섹션 스타일 */
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #777;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+  }
+
+  .tab-btn:hover, .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn:hover::after, .tab-btn.active::after {
+    width: 100%;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .product-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  }
+  
+  .product-badge.new {
+    background-color: var(--success-color);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .product-card h3 {
+    margin: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .product-card p {
+    margin: 0 1rem 1rem;
+    color: #777;
+  }
+
+  .product-link {
+    display: inline-block;
+    margin: 0 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .product-link:hover {
+    color: var(--secondary-color);
+  }
+
+  /* 뉴스 섹션 스타일 */
+  .news-section {
+    background-color: var(--background-color);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .news-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    transition: transform 0.3s;
+  }
+
+  .news-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .news-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .news-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .news-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .news-link:hover {
+    color: var(--secondary-color);
+  }
+
+  /* 채용 섹션 스타일 */
+  .career-section {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  .career-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .career-text {
+    flex: 1;
+  }
+
+  .career-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .career-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .career-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .career-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 반응형 스타일 */
+  @media (max-width: 1024px) {
+    .quality-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .philosophy-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .quality-cards, .philosophy-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .quality-card {
+      min-height: 320px;
+    }
+    
+    .career-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .career-text {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // 비디오 배경 및 슬로건 순환 재생 스크립트
+  document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.video-bg');
+    const slogans = document.querySelectorAll('.slogan-content');
+    const videoCount = videos.length;
+    let currentVideo = 0;
+
+    // 비디오와 슬로건 전환 함수
+    function switchContent(newIndex) {
+      // 현재 비디오와 슬로건 비활성화
+      videos[currentVideo].classList.remove('active');
+      videos[currentVideo].pause();
+      slogans[currentVideo].classList.remove('active');
+      
+      // 새 인덱스로 업데이트
+      currentVideo = newIndex;
+      
+      // 새 비디오와 슬로건 활성화
+      videos[currentVideo].classList.add('active');
+      videos[currentVideo].currentTime = 0;
+      slogans[currentVideo].classList.add('active');
+      
+      // 비디오 재생
+      const playPromise = videos[currentVideo].play();
+      
+      // 재생 약속 처리
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("비디오 자동 재생에 실패했습니다:", error);
+          // 자동 재생이 실패한 경우 3초 후 다음으로 넘어감
+          setTimeout(() => switchContent((currentVideo + 1) % videoCount), 3000);
+        });
+      }
+    }
+
+    // 비디오 재생 완료 시 다음으로 전환
+    function playNextVideo() {
+      switchContent((currentVideo + 1) % videoCount);
+    }
+
+    // 각 비디오에 ended 이벤트 리스너 추가
+    videos.forEach(video => {
+      video.addEventListener('ended', playNextVideo);
+    });
+
+    // 제품 탭 클릭 이벤트
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // 모든 탭에서 active 클래스 제거
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // 클릭된 탭에 active 클래스 추가
+        this.classList.add('active');
+        
+        // 여기에 탭 전환 로직 추가 가능
+        // 예: 해당하는 제품 그리드 업데이트
+      });
+    });
+  });
+</script>

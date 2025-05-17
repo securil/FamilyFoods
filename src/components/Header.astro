@@ -1,0 +1,180 @@
+---
+---
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <a href="/" class="logo-link">FAMILY</a>
+    </div>
+    
+    <nav class="desktop-nav">
+      <a href="#company" class="nav-link">회사소개</a>
+      <a href="#products" class="nav-link">제품소개</a>
+      <a href="#quality" class="nav-link">품질관리</a>
+      <a href="#customer" class="nav-link">고객센터</a>
+      <a href="#familyland" class="nav-link">웨미리랜드</a>
+    </nav>
+    
+    <div class="right-section">
+      <div class="language-selector">
+        <button class="lang-btn" aria-label="한국어">🇰🇷</button>
+        <button class="lang-btn" aria-label="English">🇺🇸</button>
+        <button class="lang-btn" aria-label="中文">🇨🇳</button>
+      </div>
+      
+      <button id="mobile-menu-button" class="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- 모바일 메뉴 -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="container mobile-menu-container">
+      <a href="#company" class="mobile-nav-link">회사소개</a>
+      <a href="#products" class="mobile-nav-link">제품소개</a>
+      <a href="#quality" class="mobile-nav-link">품질관리</a>
+      <a href="#customer" class="mobile-nav-link">고객센터</a>
+      <a href="#familyland" class="mobile-nav-link">웨미리랜드</a>
+      
+      <div class="mobile-language-selector">
+        <button class="lang-btn" aria-label="한국어">🇰🇷</button>
+        <button class="lang-btn" aria-label="English">🇺🇸</button>
+        <button class="lang-btn" aria-label="中文">🇨🇳</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // 모바일 메뉴 토글 기능
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('mobile-menu-active');
+    });
+  }
+</script>
+
+<style>
+  .header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .logo-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--family-orange);
+    text-decoration: none;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin: 0 0.75rem;
+  }
+  
+  .nav-link:hover {
+    color: var(--family-orange);
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .language-selector {
+    display: none;
+  }
+  
+  .lang-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    margin: 0 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+  
+  .mobile-menu {
+    display: none;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #eee;
+  }
+  
+  .mobile-menu.mobile-menu-active {
+    display: block;
+  }
+  
+  .mobile-menu-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  
+  .mobile-nav-link {
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+  }
+  
+  .mobile-nav-link:hover {
+    color: var(--family-orange);
+  }
+  
+  .mobile-language-selector {
+    display: flex;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: flex;
+    }
+    
+    .language-selector {
+      display: flex;
+      margin-right: 1rem;
+    }
+    
+    .mobile-menu-button {
+      display: none;
+    }
+  }
+</style>

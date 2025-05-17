@@ -1,0 +1,104 @@
+---
+import { createI18nHelpers } from '../i18n/i18n-utils.js';
+import MainLayout from './MainLayout.astro';
+
+// 다국어 지원
+const { currentLocale, t } = createI18nHelpers(Astro.url?.pathname || '/');
+
+interface Props {
+  title?: string;
+  description?: string;
+  pageTitle: string;
+  breadcrumbs: Array<{
+    label: string;
+    href: string;
+  }>;
+}
+
+const { 
+  title = t('layout.title') || '훼미리식품',
+  description = t('layout.description') || '훼미리는 가족입니다. 사랑과 신뢰가 있는 기업',
+  pageTitle,
+  breadcrumbs = []
+} = Astro.props;
+---
+
+<MainLayout title={title} description={description}>
+  <div class="subpage-header">
+    <div class="container">
+      <h1 class="page-title">{pageTitle}</h1>
+      
+      <div class="breadcrumbs">
+        <a href="/" class="breadcrumb-item">{t('nav.home')}</a>
+        {breadcrumbs.map((item, index) => (
+          <span class="breadcrumb-separator">/</span>
+          <a 
+            href={item.href} 
+            class={`breadcrumb-item ${index === breadcrumbs.length - 1 ? 'active' : ''}`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  
+  <main class="subpage-content">
+    <slot />
+  </main>
+</MainLayout>
+
+<style>
+  .subpage-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb-item {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .breadcrumb-item:hover {
+    color: var(--accent-color);
+  }
+
+  .breadcrumb-item.active {
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .subpage-content {
+    padding-bottom: 5rem;
+  }
+
+  @media (max-width: 768px) {
+    .subpage-header {
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

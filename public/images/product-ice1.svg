@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#E1F5FE"/>
+  <polygon points="100,75 200,75 225,150 200,225 100,225 75,150" fill="#81D4FA"/>
+  <text x="150" y="160" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#0288D1">라라마스</text>
+</svg>

@@ -1,48 +1,50 @@
-# Astro Starter Kit: Basics
+# 훼미리식품 홈페이지
 
-```sh
-npm create astro@latest -- --template basics
+훼미리식품 홈페이지 리뉴얼 프로젝트입니다.
+
+## 개발 환경
+
+- 개발 환경: 데스크톱 환경(Windows 10)
+- 기술 스택: Astro 프레임워크, HTML/CSS/JavaScript
+
+## 실행 방법
+
+```bash
+# 의존성 패키지 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+
+# 빌드 결과물 미리보기
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 배포 
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+이 프로젝트는 GitHub Pages를 통해 배포됩니다.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+# GitHub Pages 배포
+npm run deploy
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+배포된 사이트: [https://securil.github.io/FamilyFoods/](https://securil.github.io/FamilyFoods/)
 
-## 🧞 Commands
+## 폴더 구조
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+D:\Project\FamilyFoods\
+├── src/                 # 소스 코드 폴더
+│   ├── components/      # 컴포넌트 폴더
+│   ├── i18n/            # 다국어 처리 폴더
+│   ├── layouts/         # 레이아웃 폴더
+│   ├── pages/           # 페이지 폴더 (라우팅)
+│   └── styles/          # 스타일 폴더
+├── public/              # 정적 파일 폴더
+├── dist/                # 빌드 결과물 (배포 파일)
+└── ...
+```

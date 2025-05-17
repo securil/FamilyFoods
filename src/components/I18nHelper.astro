@@ -1,0 +1,21 @@
+---
+import { initI18n } from '../i18n/index.js';
+
+// 초기화 - 현재 페이지 경로에서 언어 추출 및 필요한 함수 설정
+const { currentLocale, t, getLanguageLinks } = initI18n(Astro.url?.pathname || '/');
+---
+
+<!-- 공개 API - 다른 컴포넌트에서 import 할 수 있도록 함수 내보내기 -->
+<script is:inline define:vars={{ currentLocale, helpers: { t, getLanguageLinks } }}>
+  // 전역 객체로 내보내기 (브라우저에서 사용)
+  window.i18n = {
+    currentLocale,
+    t: helpers.t,
+    getLanguageLinks: helpers.getLanguageLinks
+  };
+</script>
+
+<!-- 외부에서 import할 때 사용할 함수를 export -->
+export const getCurrentLocale = () => currentLocale;
+export const getT = () => t;
+export const getLangLinks = () => getLanguageLinks();

@@ -4,11 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && echo > dist/.nojekyll",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "gh-pages -d dist",
+    "deploy:ci": "gh-pages -d dist -r https://github.com/securil/FamilyFoods.git -u \"GitHub Action <action@github.com>\""
   },
   "dependencies": {
     "astro": "^5.7.13"
+  },
+  "devDependencies": {
+    "aos": "^2.3.4",
+    "gh-pages": "^6.1.0",
+    "gsap": "^3.12.5",
+    "postcss": "^8.5.3",
+    "swiper": "^11.0.6"
   }
 }

@@ -1,0 +1,50 @@
+---
+const values = [
+  {
+    title: "가족",
+    description: "우리는 가족을 위해 건강하고 안전한 식품을 만듭니다",
+    icon: "❤️"
+  },
+  {
+    title: "신뢰",
+    description: "고객과의 약속을 지키며 신뢰를 쌓아갑니다",
+    icon: "🤝"
+  },
+  {
+    title: "품질",
+    description: "엄격한 품질관리를 통해 최고의 제품을 제공합니다",
+    icon: "✅"
+  },
+  {
+    title: "혁신",
+    description: "끊임없는 연구개발로 새로운 가치를 창출합니다",
+    icon: "💡"
+  }
+];
+---
+
+<section id="company" class="section-padding bg-family-gray">
+  <div class="container-custom">
+    <h2 class="section-title">
+      <span class="text-family-orange">가족</span>의 이름으로
+    </h2>
+    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+      훼미리식품은 '가족'이라는 이름으로 사랑과 신뢰를 바탕으로 한 기업입니다.
+      우리는 고객을 가족처럼 생각하며, 최고의 품질과 서비스를 제공하기 위해 노력합니다.
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {values.map((value, index) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+          class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+        >
+          <div class="text-4xl mb-4">{value.icon}</div>
+          <h3 class="text-xl font-bold mb-2">{value.title}</h3>
+          <p class="text-gray-600">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
